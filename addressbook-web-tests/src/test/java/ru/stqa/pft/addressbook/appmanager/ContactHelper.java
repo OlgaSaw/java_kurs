@@ -12,11 +12,11 @@ public class ContactHelper extends HelperBase{
   }
 
   public void returnToContacts() {
-    click(By.xpath("//div[@id='content']/form/input[21]"));
+    click(By.linkText("home page"));
   }
 
   public void submit() {
-    click(By.xpath("//div[@id='content']/form/select[5]/option[2]"));
+    click(By.xpath("(//input[@name='submit'])[2]"));
   }
 
   public void fillContactForm(GroupContactData groupContactData) {
@@ -54,5 +54,17 @@ public class ContactHelper extends HelperBase{
 
   public void selectContact() {
     click(By.name("selected[]"));
+  }
+
+  public void initContactModification() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+
+  public void submitContactModification() {
+    click(By.xpath("(//input[@name='update'])[2]"));
+  }
+
+  public void submitContactDeletion() {
+    wd.switchTo().alert().accept();
   }
 }
