@@ -68,6 +68,6 @@ public class ContactHelper {
   }
 
   public void selectContact() {
-    groupHelper.selectGroup();
+    wd.findElement(By.name("selected[]")).click();
   }
 }
