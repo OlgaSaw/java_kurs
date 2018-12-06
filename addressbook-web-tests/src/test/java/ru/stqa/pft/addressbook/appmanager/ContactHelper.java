@@ -3,7 +3,7 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-import ru.stqa.pft.addressbook.tests.GroupContactData;
+import ru.stqa.pft.addressbook.tests.ContactData;
 
 public class ContactHelper extends HelperBase{
 
@@ -19,27 +19,27 @@ public class ContactHelper extends HelperBase{
     click(By.xpath("(//input[@name='submit'])[2]"));
   }
 
-  public void fillContactForm(GroupContactData groupContactData) {
-    type(By.name("firstname"),groupContactData.getFirstname());
-    type(By.name("middlename"),groupContactData.getMiddlename());
-    type(By.name("lastname"),groupContactData.getLastname());
-    type(By.name("nickname"),groupContactData.getNickname());
-    type(By.name("title"),groupContactData.getTitle() );
-    type(By.name("company"),groupContactData.getCompany() );
-    type(By.name("address"), groupContactData.getAddress());
-    type(By.name("mobile"),groupContactData.getMobile() );
-    type(By.name("email"),groupContactData.getEmail() );
-    type(By.name("homepage"),groupContactData.getHomepage());
-    new Select(wd.findElement(By.name("bday"))).selectByVisibleText(groupContactData.getBday());
-    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(groupContactData.getBmonth());
-    type(By.name("byear"),groupContactData.getByear() );
+  public void fillContactForm(ContactData contactData) {
+    type(By.name("firstname"), contactData.getFirstname());
+    type(By.name("middlename"), contactData.getMiddlename());
+    type(By.name("lastname"), contactData.getLastname());
+    type(By.name("nickname"), contactData.getNickname());
+    type(By.name("title"), contactData.getTitle() );
+    type(By.name("company"), contactData.getCompany() );
+    type(By.name("address"), contactData.getAddress());
+    type(By.name("mobile"), contactData.getMobile() );
+    type(By.name("email"), contactData.getEmail() );
+    type(By.name("homepage"), contactData.getHomepage());
+    new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBday());
+    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBmonth());
+    type(By.name("byear"), contactData.getByear() );
     click(By.name("aday"));
-    new Select(wd.findElement(By.name("aday"))).selectByVisibleText(groupContactData.getAday());
+    new Select(wd.findElement(By.name("aday"))).selectByVisibleText(contactData.getAday());
     click(By.xpath("//div[@id='content']/form/select[3]/option[4]"));
     click(By.name("amonth"));
-    new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(groupContactData.getAmonth());
+    new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(contactData.getAmonth());
     click(By.xpath("//div[@id='content']/form/select[4]/option[4]"));
-    type(By.name("ayear"),groupContactData.getAyear() );
+    type(By.name("ayear"), contactData.getAyear() );
 
 
   }
