@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.tests;
+package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
   private final String firstname;
@@ -17,9 +17,9 @@ public class ContactData {
   private final String aday;
   private final String amonth;
   private final String ayear;
-  private final String newgroup;
+  private final String group;
 
-  public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String mobile, String email, String homepage, String bday, String bmonth, String byear, String aday, String amonth, String ayear, String newgroup) {
+  public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String mobile, String email, String homepage, String bday, String bmonth, String byear, String aday, String amonth, String ayear, String group) {
     this.firstname = firstname;
     this.middlename = middlename;
     this.lastname = lastname;
@@ -36,7 +36,7 @@ public class ContactData {
     this.aday = aday;
     this.amonth = amonth;
     this.ayear = ayear;
-    this.newgroup = newgroup;
+    this.group = group;
   }
 
   public String getFirstname() {
@@ -103,7 +103,7 @@ public class ContactData {
     return ayear;
   }
 
-  public String getNewgroup() {
-    return newgroup;
+  public String getGroup() {
+    return group;
   }
 }
