@@ -13,7 +13,7 @@ public class ContactHelper extends HelperBase{
   }
 
   public void returnToContacts() {
-    click(By.linkText("home page"));
+    click(By.linkText("home"));
   }
 
   public void submit() {
@@ -82,5 +82,9 @@ public class ContactHelper extends HelperBase{
 
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
+  }
+
+  public int getContactCount() {
+    return wd.findElements(By.name("selected[]")).size();
   }
 }
