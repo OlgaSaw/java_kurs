@@ -149,10 +149,10 @@ public class ContactData {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    ContactData that = (ContactData) o;
-    return Objects.equals(id, that.id) &&
-            Objects.equals(firstname, that.firstname) &&
-            Objects.equals(lastname, that.lastname);
+    ContactData contactData = (ContactData) o;
+    return Objects.equals(id, contactData.id) &&
+            Objects.equals(firstname, contactData.firstname) &&
+            Objects.equals(lastname, contactData.lastname);
   }
 
   @Override
