@@ -19,14 +19,15 @@ public class ContactDeletionTests extends TestBase{
               "2", "March", "2010", "test1"), true);
     }
     List<ContactData> before = app.getContactHelper().getContactList();
-    app.getContactHelper().selectContact(before.size()-1);
+    int index = before.size()-1;
+    app.getContactHelper().selectContact(index);
     app.getContactHelper().deleteContacts();
     app.getContactHelper().submitContactDeletion();
     app.getContactHelper().returnToContacts();
     List<ContactData> after = app.getContactHelper().getContactList();
-    Assert.assertEquals(after.size(),before.size() - 1);
+    Assert.assertEquals(after.size(),index);
 
-    before.remove(before.size()-1);
+    before.remove(index);
     Assert.assertEquals(before, after);
   }
 
