@@ -12,7 +12,7 @@ public class ContactModificationTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions(){
-    app.getNavigationHelper().goToContactsPage();
+    app.goTo().goToContactsPage();
     if (!app.getContactHelper().isThereAContact()){
       app.getContactHelper().createContact(new ContactData("Test", "Test1", "Test2",
               "ttt", "Mr", "Bravura", "szeligowska street", "+48555888555",
