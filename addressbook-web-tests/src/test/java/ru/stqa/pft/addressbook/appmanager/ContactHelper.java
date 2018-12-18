@@ -97,7 +97,7 @@ public class ContactHelper extends HelperBase{
     List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements){
       String id = element.getAttribute("value");
-      String firstname = element.findElement(By.cssSelector("td:nth-child(3)")).getText(); 
+      String firstname = element.findElement(By.cssSelector("td:nth-child(3)")).getText();
       String lastname = element.findElement(By.cssSelector("td:nth-child(2)")).getText();
       ContactData contact = new ContactData(id, firstname, null, lastname,null, null, null, null, null, null, null, null, null, null, null, null, null, null);
       contacts.add(contact);
