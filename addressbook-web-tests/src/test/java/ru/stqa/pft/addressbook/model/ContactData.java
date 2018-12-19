@@ -3,66 +3,24 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-  private int id;
-  private final String firstname;
-  private final String middlename;
-  private final String lastname;
-  private final String nickname;
-  private final String title;
-  private final String company;
-  private final String address;
-  private final String mobile;
-  private final String email;
-  private final String homepage;
-  private final String bday;
-  private final String bmonth;
-  private final String byear;
-  private final String aday;
-  private final String amonth;
-  private final String ayear;
-  private final String group;
-
-  public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String mobile, String email, String homepage, String bday, String bmonth, String byear, String aday, String amonth, String ayear, String group) {
-    this.id = Integer.MAX_VALUE;
-    this.firstname = firstname;
-    this.middlename = middlename;
-    this.lastname = lastname;
-    this.nickname = nickname;
-    this.title = title;
-    this.company = company;
-    this.address = address;
-    this.mobile = mobile;
-    this.email = email;
-    this.homepage = homepage;
-    this.bday = bday;
-    this.bmonth = bmonth;
-    this.byear = byear;
-    this.aday = aday;
-    this.amonth = amonth;
-    this.ayear = ayear;
-    this.group = group;
-  }
-
-  public ContactData(int id, String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String mobile, String email, String homepage, String bday, String bmonth, String byear, String aday, String amonth, String ayear, String group) {
-    this.id = id;
-    this.firstname = firstname;
-    this.middlename = middlename;
-    this.lastname = lastname;
-    this.nickname = nickname;
-    this.title = title;
-    this.company = company;
-    this.address = address;
-    this.mobile = mobile;
-    this.email = email;
-    this.homepage = homepage;
-    this.bday = bday;
-    this.bmonth = bmonth;
-    this.byear = byear;
-    this.aday = aday;
-    this.amonth = amonth;
-    this.ayear = ayear;
-    this.group = group;
-  }
+  private int id = Integer.MAX_VALUE;
+  private String firstname;
+  private String middlename;
+  private String lastname;
+  private String nickname;
+  private String title;
+  private String company;
+  private String address;
+  private String mobile;
+  private String email;
+  private String homepage;
+  private String bday;
+  private String bmonth;
+  private String byear;
+  private String aday;
+  private String amonth;
+  private String ayear;
+  private String group;
 
   public int getId() {
     return id;
@@ -136,6 +94,97 @@ public class ContactData {
     return group;
   }
 
+
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+  }
+
+  public ContactData withFirstname(String firstname) {
+    this.firstname = firstname;
+    return this;
+  }
+
+  public ContactData withMiddlename(String middlename) {
+    this.middlename = middlename;
+    return this;
+  }
+
+  public ContactData withLastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withNickname(String nickname) {
+    this.nickname = nickname;
+    return this;
+  }
+
+  public ContactData withTitle(String title) {
+    this.title = title;
+    return this;
+  }
+
+  public ContactData withCompany(String company) {
+    this.company = company;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public ContactData withMobile(String mobile) {
+    this.mobile = mobile;
+    return this;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public ContactData withHomepage(String homepage) {
+    this.homepage = homepage;
+    return this;
+  }
+
+  public ContactData withBday(String bday) {
+    this.bday = bday;
+    return this;
+  }
+
+  public ContactData withBmonth(String bmonth) {
+    this.bmonth = bmonth;
+    return this;
+  }
+
+  public ContactData withByear(String byear) {
+    this.byear = byear;
+    return this;
+  }
+
+  public ContactData withAday(String aday) {
+    this.aday = aday;
+    return this;
+  }
+
+  public ContactData withAmonth(String amonth) {
+    this.amonth = amonth;
+    return this;
+  }
+
+  public ContactData withAyear(String ayear) {
+    this.ayear = ayear;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
+  }
+
   @Override
   public String toString() {
     return "ContactData{" +
@@ -143,10 +192,6 @@ public class ContactData {
             ", firstname='" + firstname + '\'' +
             ", lastname='" + lastname + '\'' +
             '}';
-  }
-
-  public void setId(int id) {
-    this.id = id;
   }
 
   @Override
