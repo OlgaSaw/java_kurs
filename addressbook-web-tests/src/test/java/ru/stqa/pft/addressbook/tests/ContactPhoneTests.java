@@ -1,8 +1,13 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 public class ContactPhoneTests extends TestBase {
 
@@ -21,8 +26,12 @@ public class ContactPhoneTests extends TestBase {
 
   public void testContactPhones(){
     app.goTo().contactsPage();
-    ContactData contact = app.contact().all().iterator().next();
+    ContactData contact = app.contact().allList().iterator().next();
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
+
+    assertThat(contact.getHomePhone(), equalTo(contactInfoFromEditForm.getHomePhone()));
+    assertThat(contact.getMobilePhone(), equalTo(contactInfoFromEditForm.getMobilePhone()));
+    assertThat(contact.getWorkPhone(), equalTo(contactInfoFromEditForm.getWorkPhone()));
 
   }
 }

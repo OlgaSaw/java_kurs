@@ -56,11 +56,15 @@ public class ContactData {
     return address;
   }
 
-  public String getHome() { return home;
+  public String getHomePhone() { return home;
   }
 
-  public String getMobile() {
+  public String getMobilePhone() {
     return mobile;
+  }
+
+  public String getWorkPhone() {
+    return work;
   }
 
   public String getEmail() {

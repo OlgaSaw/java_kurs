@@ -8,7 +8,9 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase{
 
@@ -34,8 +36,9 @@ public class ContactHelper extends HelperBase{
     type(By.name("title"), contactData.getTitle() );
     type(By.name("company"), contactData.getCompany() );
     type(By.name("address"), contactData.getAddress());
-    type(By.name("home"), contactData.getHome() );
-    type(By.name("mobile"), contactData.getMobile() );
+    type(By.name("home"), contactData.getHomePhone() );
+    type(By.name("mobile"), contactData.getMobilePhone() );
+    type(By.name("work"), contactData.getWorkPhone() );
     type(By.name("email"), contactData.getEmail() );
     type(By.name("homepage"), contactData.getHomepage());
     new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBday());
@@ -141,6 +144,20 @@ public class ContactHelper extends HelperBase{
     return new Contacts(contactCache);
   }
 
+  public Set<ContactData> allList() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
+    List<WebElement> rows = wd.findElements(By.name("entry"));
+    for (WebElement row : rows){
+      List<WebElement> cells = row.findElements(By.tagName("td"));
+      int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
+      String firstname = cells.get(2).getText();
+      String lastname = cells.get(1).getText();
+      String[] phones = cells.get(5).getText().split("\n");
+      contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
+              .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
+    }
+    return contacts;
+  }
 
 
 }
