@@ -16,7 +16,7 @@ public class ContactModificationTests extends TestBase {
     app.goTo().contactsPage();
     if (app.contact().all().size()==0){
       app.contact().create(new ContactData().withFirstname("Test").withMiddlename("Test1").withLastname("Test2").withNickname("ttt")
-              .withTitle("Mr").withCompany("Bravura").withAddress("szeligowska street").withMobile("+48555888555").withEmail("test@test.pl")
+              .withTitle("Mr").withCompany("Bravura").withAddress("szeligowska street").withMobilePhone("+48555888555").withEmail("test@test.pl")
               .withHomepage("www.test.pl").withBday("1").withBmonth("January").withByear("1989").withAday("2").withAmonth("March")
               .withAyear("2010").withGroup("test1"), true);
     }
@@ -26,7 +26,7 @@ public class ContactModificationTests extends TestBase {
     Contacts before = app.contact().all();
     ContactData modifiedContact = before.iterator().next();
     ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstname("Test").withMiddlename("Test1").withLastname("Test2")
-            .withNickname("ttt").withTitle("Mr").withCompany("Bravura").withAddress("szeligowska street").withMobile("+48555888555")
+            .withNickname("ttt").withTitle("Mr").withCompany("Bravura").withAddress("szeligowska street").withMobilePhone("+48555888555")
             .withEmail("test@test.pl").withHomepage("www.test.pl").withBday("1").withBmonth("January").withByear("1989")
             .withAday("2").withAmonth("March").withAyear("2010");
 
