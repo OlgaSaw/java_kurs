@@ -14,6 +14,7 @@ public class ContactData {
   private String home;
   private String mobile;
   private String work;
+  private String fax;
   private String email;
   private String email2;
   private String email3;
@@ -27,7 +28,13 @@ public class ContactData {
   private String group;
   private String allPhones;
   private String allMails;
+  private String allDetails;
 
+
+
+  public String getAllDetails() {
+    return allDetails;
+  }
 
   public String getAllPhones() {
     return allPhones;
@@ -36,6 +43,20 @@ public class ContactData {
   public ContactData withAllPhones(String allPhones) {
     this.allPhones = allPhones;
     return this;
+  }
+
+  public ContactData withAllDetails(String allDetails) {
+    this.allDetails = normalizeData(allDetails);
+    return this;
+  }
+
+  private String normalizeData(String allDetails) {
+    return allDetails
+            .replace("H: ", "")
+            .replace("M: ", "")
+            .replace("W: ", "")
+            .replaceAll("\\s", "\n")
+            .replaceAll("\\n+", "\n");
   }
 
   public String getAllMails() {
@@ -88,6 +109,10 @@ public class ContactData {
 
   public String getWorkPhone() {
     return work;
+  }
+
+  public String getFax() {
+    return fax;
   }
 
   public String getEmail() {
@@ -185,6 +210,11 @@ public class ContactData {
 
   public ContactData withWorkPhone(String work) {
     this.work= work;
+    return this;
+  }
+
+  public ContactData withFax(String fax) {
+    this.fax= fax;
     return this;
   }
 
