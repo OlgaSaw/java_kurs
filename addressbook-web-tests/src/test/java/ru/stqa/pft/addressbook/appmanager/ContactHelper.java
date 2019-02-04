@@ -33,32 +33,26 @@ public class ContactHelper extends HelperBase{
     type(By.name("middlename"), contactData.getMiddlename());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("nickname"), contactData.getNickname());
-    type(By.name("title"), contactData.getTitle() );
-    type(By.name("company"), contactData.getCompany() );
+    type(By.name("title"), contactData.getTitle());
+    type(By.name("company"), contactData.getCompany());
     type(By.name("address"), contactData.getAddress());
-    type(By.name("home"), contactData.getHomePhone() );
-    type(By.name("mobile"), contactData.getMobilePhone() );
-    type(By.name("work"), contactData.getWorkPhone() );
-    type(By.name("email"), contactData.getEmail() );
-    type(By.name("email2"), contactData.getEmail2() );
-    type(By.name("email3"), contactData.getEmail3() );
-    type(By.name("homepage"), contactData.getHomepage());
-    new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBday());
-    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBmonth());
-    type(By.name("byear"), contactData.getByear() );
-    click(By.name("aday"));
-    new Select(wd.findElement(By.name("aday"))).selectByVisibleText(contactData.getAday());
-    click(By.xpath("//div[@id='content']/form/select[3]/option[4]"));
-    click(By.name("amonth"));
-    new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(contactData.getAmonth());
-    click(By.xpath("//div[@id='content']/form/select[4]/option[4]"));
-    type(By.name("ayear"), contactData.getAyear() );
-    if (creation){
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    type(By.name("home"), contactData.getHomePhone());
+    type(By.name("mobile"), contactData.getMobilePhone());
+    type(By.name("work"), contactData.getWorkPhone());
+    type(By.name("email"), contactData.getEmail());
+    type(By.name("email2"), contactData.getEmail2());
+    type(By.name("email3"), contactData.getEmail3());
+    attach(By.name("photo"), contactData.getPhoto());
+
+    if (creation) {
+      if (contactData.getGroup() != null) {
+        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      }
     } else {
-      Assert.assertFalse(isElementPresent(By.name("new_group")));
+        Assert.assertFalse(isElementPresent(By.name("new_group")));
+      }
     }
-  }
+
 
   public void initContactCreation() {
     click(By.linkText("add new"));
