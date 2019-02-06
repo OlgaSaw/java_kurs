@@ -6,7 +6,7 @@
     "nickname": "nickname 0",
     "address": "szeligowska 0",
     "mobile": "+4811177788 0",
-    "email": "email@ 0"
+    "email": "email@0.pl"
   },
   {
     "firstname": "test 1",
@@ -15,7 +15,7 @@
     "nickname": "nickname 1",
     "address": "szeligowska 1",
     "mobile": "+4811177788 1",
-    "email": "email@ 1"
+    "email": "email@1.pl"
   },
   {
     "firstname": "test 2",
@@ -24,7 +24,7 @@
     "nickname": "nickname 2",
     "address": "szeligowska 2",
     "mobile": "+4811177788 2",
-    "email": "email@ 2"
+    "email": "email@2.pl"
   },
   {
     "firstname": "test 3",
@@ -33,7 +33,7 @@
     "nickname": "nickname 3",
     "address": "szeligowska 3",
     "mobile": "+4811177788 3",
-    "email": "email@ 3"
+    "email": "email@3.pl"
   },
   {
     "firstname": "test 4",
@@ -42,7 +42,7 @@
     "nickname": "nickname 4",
     "address": "szeligowska 4",
     "mobile": "+4811177788 4",
-    "email": "email@ 4"
+    "email": "email@4.pl"
   },
   {
     "firstname": "test 5",
@@ -51,7 +51,7 @@
     "nickname": "nickname 5",
     "address": "szeligowska 5",
     "mobile": "+4811177788 5",
-    "email": "email@ 5"
+    "email": "email@5.pl"
   },
   {
     "firstname": "test 6",
@@ -60,6 +60,6 @@
     "nickname": "nickname 6",
     "address": "szeligowska 6",
     "mobile": "+4811177788 6",
-    "email": "email@ 6"
+    "email": "email@6.pl"
   }
 ]
