@@ -1,31 +1,38 @@
 package ru.stqa.pft.addressbook.model;
 
+import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
 import java.io.File;
 import java.util.Objects;
 
+@XStreamAlias("contact")
 public class ContactData {
+  @XStreamOmitField
   private int id = Integer.MAX_VALUE;
+  @Expose
   private String firstname;
+  @Expose
   private String middlename;
+  @Expose
   private String lastname;
+  @Expose
   private String nickname;
   private String title;
   private String company;
+  @Expose
   private String address;
   private String home;
+  @Expose
   private String mobile;
   private String work;
   private String fax;
+  @Expose
   private String email;
   private String email2;
   private String email3;
   private String homepage;
-  private String bday;
-  private String bmonth;
-  private String byear;
-  private String aday;
-  private String amonth;
-  private String ayear;
   private String group;
   private String allPhones;
   private String allMails;
@@ -124,9 +131,6 @@ public class ContactData {
     return work;
   }
 
-  public String getFax() {
-    return fax;
-  }
 
   public String getEmail() {
     return email;
@@ -225,40 +229,6 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withBday(String bday) {
-    this.bday = bday;
-    return this;
-  }
-
-  public ContactData withBmonth(String bmonth) {
-    this.bmonth = bmonth;
-    return this;
-  }
-
-  public ContactData withByear(String byear) {
-    this.byear = byear;
-    return this;
-  }
-
-  public ContactData withAday(String aday) {
-    this.aday = aday;
-    return this;
-  }
-
-  public ContactData withAmonth(String amonth) {
-    this.amonth = amonth;
-    return this;
-  }
-
-  public ContactData withAyear(String ayear) {
-    this.ayear = ayear;
-    return this;
-  }
-
-  public ContactData withGroup(String group) {
-    this.group = group;
-    return this;
-  }
 
   @Override
   public String toString() {

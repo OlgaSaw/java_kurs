@@ -1,0 +1,65 @@
+<list>
+  <contact>
+    <firstname>test 0</firstname>
+    <middlename>middlename 0</middlename>
+    <lastname>lastname 0</lastname>
+    <nickname>nickname 0</nickname>
+    <address>szeligowska 0</address>
+    <mobile>+4811177788 0</mobile>
+    <email>email@0.pl</email>
+  </contact>
+  <contact>
+    <firstname>test 1</firstname>
+    <middlename>middlename 1</middlename>
+    <lastname>lastname 1</lastname>
+    <nickname>nickname 1</nickname>
+    <address>szeligowska 1</address>
+    <mobile>+4811177788 1</mobile>
+    <email>email@1.pl</email>
+  </contact>
+  <contact>
+    <firstname>test 2</firstname>
+    <middlename>middlename 2</middlename>
+    <lastname>lastname 2</lastname>
+    <nickname>nickname 2</nickname>
+    <address>szeligowska 2</address>
+    <mobile>+4811177788 2</mobile>
+    <email>email@2.pl</email>
+  </contact>
+  <contact>
+    <firstname>test 3</firstname>
+    <middlename>middlename 3</middlename>
+    <lastname>lastname 3</lastname>
+    <nickname>nickname 3</nickname>
+    <address>szeligowska 3</address>
+    <mobile>+4811177788 3</mobile>
+    <email>email@3.pl</email>
+  </contact>
+  <contact>
+    <firstname>test 4</firstname>
+    <middlename>middlename 4</middlename>
+    <lastname>lastname 4</lastname>
+    <nickname>nickname 4</nickname>
+    <address>szeligowska 4</address>
+    <mobile>+4811177788 4</mobile>
+    <email>email@4.pl</email>
+  </contact>
+  <contact>
+    <firstname>test 5</firstname>
+    <middlename>middlename 5</middlename>
+    <lastname>lastname 5</lastname>
+    <nickname>nickname 5</nickname>
+    <address>szeligowska 5</address>
+    <mobile>+4811177788 5</mobile>
+    <email>email@5.pl</email>
+  </contact>
+  <contact>
+    <firstname>test 6</firstname>
+    <middlename>middlename 6</middlename>
+    <lastname>lastname 6</lastname>
+    <nickname>nickname 6</nickname>
+    <address>szeligowska 6</address>
+    <mobile>+4811177788 6</mobile>
+    <email>email@6.pl</email>
+  </contact>
+</list>
