@@ -3,6 +3,8 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
@@ -16,6 +18,7 @@ import java.util.stream.Collectors;
 
 
 public class ContactCreationTests extends TestBase{
+  Logger logger = LoggerFactory.getLogger(GroupCreationTests.class);
 
   @DataProvider
   public Iterator<Object[]> validContactsFromXml() throws IOException {
@@ -50,15 +53,18 @@ public class ContactCreationTests extends TestBase{
 
   @Test(dataProvider = "validContactsFromXml")
   public void testContactCreation(ContactData contact) {
+    logger.info("Start test testGroupCreation");
     app.goTo().contactsPage();
     app.contact().initContactCreation();
     app.contact().fillContactForm(contact, true);
     app.contact().submit();
     app.contact().returnToContacts();
+    logger.info("Stop test testGroupCreation");
   }
 
   @Test
   public void testContactCreation() {
+    logger.info("Start test testGroupCreation");
     app.goTo().contactsPage();
     app.contact().initContactCreation();
     File photo= new File("src/test/resources/160.png");
@@ -68,6 +74,7 @@ public class ContactCreationTests extends TestBase{
             .withEmail("test@test.pl").withPhoto(photo), true);
     app.contact().submit();
     app.contact().returnToContacts();
+    logger.info("Stop test testGroupCreation");
   }
 
 //  @Test
