@@ -3,48 +3,110 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
+@Entity
+@Table(name = "addressbook")
 @XStreamAlias("contact")
 public class ContactData {
+
+  @Id
+  @Column(name = "id")
   @XStreamOmitField
   private int id = Integer.MAX_VALUE;
+
+  @Column(name = "firstname")
   @Expose
   private String firstname;
+
+  @Column(name="middlename")
   @Expose
   private String middlename;
+
+  @Column(name = "lastname")
   @Expose
   private String lastname;
+
+  @Column(name= "nickname")
   @Expose
   private String nickname;
+
+  @Column(name="title")
   private String title;
+
+  @Column(name="company")
   private String company;
+
+  @Column(name = "address")
+  @Type(type = "text")
   @Expose
   private String address;
+
+  @Column(name = "home")
+  @Type(type = "text")
   private String home;
+
+  @Column(name= "mobile")
+  @Type(type = "text")
   @Expose
   private String mobile;
+
+  @Column(name = "work")
+  @Type(type = "text")
   private String work;
+
+  @Column(name = "fax")
+  @Type(type = "text")
   private String fax;
+
+  @Column(name = "email")
+  @Type(type = "text")
   @Expose
   private String email;
+
+  @Column(name = "email2")
+  @Type(type = "text")
   private String email2;
+
+  @Column(name = "email3")
+  @Type(type = "text")
   private String email3;
-  private String homepage;
+
+  @Transient
   private String group;
+
+  @Transient
   private String allPhones;
+
+  @Transient
   private String allMails;
+
+  @Transient
   private String allDetails;
-  private File photo;
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            '}';
+  }
+
+  @Column(name= "photo")
+  @Type(type = "text")
+  private String photo;
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
@@ -225,19 +287,9 @@ public class ContactData {
   }
 
   public ContactData withHomepage(String homepage) {
-    this.homepage = homepage;
     return this;
   }
 
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id='" + id + '\'' +
-            ", firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}';
-  }
 
   @Override
   public boolean equals(Object o) {
