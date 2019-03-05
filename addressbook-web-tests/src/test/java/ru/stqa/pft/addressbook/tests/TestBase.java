@@ -17,6 +17,7 @@ public class TestBase {
   Logger logger = LoggerFactory.getLogger(GroupCreationTests.class);
 
 
+
   protected static ApplicationManager app
           = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
 
