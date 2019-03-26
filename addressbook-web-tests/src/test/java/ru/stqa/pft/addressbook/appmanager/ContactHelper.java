@@ -7,7 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -45,9 +47,9 @@ public class ContactHelper extends HelperBase{
 //    attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
-      if (contactData.getGroup() != null) {
-        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-      }
+//      if (contactData.getGroup() != null) {
+//        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+//      }
     } else {
         Assert.assertFalse(isElementPresent(By.name("new_group")));
       }
@@ -98,6 +100,11 @@ public class ContactHelper extends HelperBase{
     String allDetails = wd.findElement(By.xpath("//*[@id='content']")).getText();
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withAllDetails(allDetails);
+  }
+
+  public int selectContactAndReturnID(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
+    return Integer.parseInt(wd.findElements(By.name("selected[]")).get(index).getAttribute("id"));
   }
 
   public void modify(ContactData contact) {
@@ -179,6 +186,32 @@ public class ContactHelper extends HelperBase{
               .withAllPhones(allPhones).withAllMails(allMails).withAddress(address));
     }
     return contacts;
+  }
+
+  public List<GroupData> groupList() {
+    List<GroupData> groups = new ArrayList<GroupData>();
+    List<WebElement> elements = wd.findElements(By.xpath("//*[@id=\"content\"]/form[2]/div[4]/select/option"));
+    for (WebElement element : elements) {
+      String name = element.getText();
+      int id = Integer.parseInt(element.getAttribute("value"));
+      GroupData group = new GroupData().withId(id).withName(name);
+      groups.add(group);
+    }
+    return groups;
+  }
+
+
+  public void click(By locator) {
+    wd.findElement(locator).click();
+  }
+
+
+  public void selectGroupAdd(String name) {
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(name);
+  }
+
+  public void selectGroupRemove(String name) {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(name);
   }
 
 

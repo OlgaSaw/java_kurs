@@ -7,7 +7,9 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "addressbook")
@@ -76,11 +78,19 @@ public class ContactData {
   @Type(type = "text")
   private String email3;
 
-  @Transient
-  private String group;
 
   @Transient
   private String allPhones;
+
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "address_in_groups",
+          joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<GroupData> groups = new HashSet<GroupData>();
+
+
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
 
   @Override
   public boolean equals(Object o) {
@@ -102,7 +112,6 @@ public class ContactData {
             Objects.equals(email, that.email) &&
             Objects.equals(email2, that.email2) &&
             Objects.equals(email3, that.email3) &&
-            Objects.equals(group, that.group) &&
             Objects.equals(allPhones, that.allPhones) &&
             Objects.equals(allMails, that.allMails) &&
             Objects.equals(allDetails, that.allDetails) &&
@@ -111,7 +120,7 @@ public class ContactData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, firstname, middlename, lastname, nickname, title, company, address, home, mobile, work, fax, email, email2, email3, group, allPhones, allMails, allDetails, photo);
+    return Objects.hash(id, firstname, middlename, lastname, nickname, title, company, address, home, mobile, work, fax, email, email2, email3, allPhones, allMails, allDetails, photo);
   }
 
   @Transient
@@ -238,10 +247,6 @@ public class ContactData {
 
 
 
-  public String getGroup() {
-    return group;
-  }
-
 
   public ContactData withId(int id) {
     this.id = id;
@@ -319,6 +324,11 @@ public class ContactData {
   }
 
   public ContactData withHomepage(String homepage) {
+    return this;
+  }
+
+  public ContactData inGroup(GroupData group){
+    groups.add(group);
     return this;
   }
 

@@ -31,6 +31,7 @@ public class ContactDetailsTest extends TestBase {
     ContactData contactInfoFromDetailsForm= app.contact().infoFromDetailsForm(contact);
 
     assertThat(contactInfoFromDetailsForm.getAllDetails(), equalTo(allDetails(contactInfoFromEditForm)));
+    verifyContactListinUI();
   }
 
   private String allDetails(ContactData contact) {
