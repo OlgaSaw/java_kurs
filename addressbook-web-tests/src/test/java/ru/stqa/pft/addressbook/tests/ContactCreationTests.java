@@ -70,16 +70,12 @@ public class ContactCreationTests extends TestBase{
     Contacts before=app.db().contacts();
     File photo=new File("src/test/resources/stru.png");
     contact.withPhoto(photo).inGroup(groups.iterator().next());
-    app.contact().initContactCreation();
-    app.contact().fillContactForm(contact, true);
-    app.contact().submit();
-    app.contact().returnToContacts();
+    app.contact().create(contact, true);
     assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after=app.db().contacts();
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((g) ->g.getId()).max().getAsInt()))));
     verifyContactListinUI();
-
   }
 
 }
